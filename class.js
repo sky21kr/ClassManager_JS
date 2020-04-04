@@ -1,8 +1,13 @@
 const managementClass = document.querySelector(".jsManagementClass"),
-    classes = document.querySelector(".jsClass");
+    classForm = document.querySelector(".jsClassForm"),
+    addForm = document.querySelector
+
+function getData() {
+    console.log("1");
+}
 
 function addClass() {
-    //창 띄워서 정보들 받아오기
+    window.open("add.html","_blank","width=500, height=500")
 }
 
 function init() {

@@ -1,3 +1,17 @@
 body{
     text-align: center;
+    background-color: #A0DEBF;
+}
+
+.jsClass{
+    background-color: white;
+    height: 500px;
+    width: 250px;
+    border-radius: 20px 20px;
+    box-shadow: 3px 3px 10px;
+    margin-top: 50px;
+}
+
+.jsClassName{
+    font-size: 40px;
 }
