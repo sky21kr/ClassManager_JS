@@ -2,8 +2,10 @@ const managementClass = document.querySelector(".jsManagementClass"),
     classForm = document.querySelector(".jsClassForm"),
     addForm = document.querySelector
 
-function getData() {
-    console.log("1");
+
+const classObject = {
+    name: "",
+    week: []
 }
 
 function addClass() {

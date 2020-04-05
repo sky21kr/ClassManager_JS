@@ -1,4 +1,3 @@
-function passValue(){
-    console.log("passvalue")
+const inp = document.getElementsByName("dayOfTheWeek")
 
-}
+// 값 저장하기
