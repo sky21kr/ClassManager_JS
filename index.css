@@ -3,13 +3,18 @@ body{
     background-color: #A0DEBF;
 }
 
-.jsClass{
+.jsClassDiv{
+    display: table;
+}
+
+.jsClassForm{
     background-color: white;
-    height: 500px;
-    width: 250px;
+    height: 400px;
+    width: 200px;
     border-radius: 20px 20px;
     box-shadow: 3px 3px 10px;
-    margin-top: 50px;
+    margin: 30px;
+    float: left;
 }
 
 .jsClassName{
