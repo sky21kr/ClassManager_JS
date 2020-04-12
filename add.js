@@ -2,8 +2,6 @@ const inp = document.getElementsByName("dayOfTheWeek"),
     className = document.querySelector(".jsClassName"),
     btn = document.querySelector(".jsSubmit");
 
-// 값 저장하기
-
 const classInfo = {
     name:"",
     dayOfTheWeek: []

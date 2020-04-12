@@ -20,3 +20,18 @@ body{
 .jsClassName{
     font-size: 40px;
 }
+
+.jsToDoList{
+    font-size: 20px;
+    text-align: left;
+    list-style: none;
+}
+
+.btn{
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: url(images/check.png) no-repeat;
+    background: "";
+    cursor: pointer;
+}
