@@ -17,6 +17,7 @@ function paintClass(name) {
     const ul = document.createElement("ul")
 
     form.classList.add("jsClassForm")
+    form.id = name
     div.classList.add("jsClassName")
     input.classList.add("jsToDoInput")
     ul.classList.add("jsToDoList")
@@ -37,6 +38,14 @@ function addClass() {
     window.onmessage = function(info) {
         const name = info.data.name
         const dayOfTheWeek = info.data.dayOfTheWeek
+
+        for(className in classObject) {
+            if( className == name ){
+                alert("이미 존재하는 수업입니다")
+                return;
+            }
+        }
+
         const newClassObject = {
             [info.data.name]: {
                 name: info.data.name,
@@ -57,10 +66,18 @@ function addClass() {
 }
 
 function deleteToDo(event) {
-    const btn = event.target;
-    const li = btn.parentNode;
+    const btn = event.target
+    const li = btn.parentNode
     const ul = li.parentNode
+    const name = ul.parentNode.id
+    const toDo = li.childNodes[1].innerText
+
     ul.removeChild(li);
+
+    //해당하는 toDo 삭제
+    classObject[name]["toDos"].splice(classObject[name]["toDos"].indexOf(toDo),1)
+
+    saveToDos()
 }
 
 function askForDel(btn) {
@@ -122,15 +139,14 @@ function loadData() {
     if (loadedData !== null) {
         const parsedData = JSON.parse(loadedData);
         classObject = parsedData
-        for(cls in parsedData) {
-            if(cls != "ToDoList"){
-                paintClass(cls)
+        for(className in parsedData) {
+            if(className != "ToDoList"){
+                paintClass(className)
             }
-            parsedData[cls]["toDos"].forEach( toDo => {
-                console.log(parsedData[cls]["path"])
-                paintToDo(parsedData[cls]["path"], toDo)
+            parsedData[className]["toDos"].forEach( toDo => {
+                const formPath = document.getElementById(`${className}`)
+                paintToDo(formPath, toDo)
             })
-            //paintToDo(cls["path"])
         }
     }
 }
