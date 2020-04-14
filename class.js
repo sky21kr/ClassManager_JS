@@ -1,7 +1,8 @@
 const managementClass = document.querySelector(".jsManagementClass"),
     classDiv = document.querySelector(".jsClassDiv"),
     classForm = document.querySelector(".jsClassForm"),
-    toDoInput = document.querySelector(".jsToDoInput")
+    toDoInput = document.querySelector(".jsToDoInput"),
+    setting = document.querySelector(".jsSetting")
 
 var classObject = {
     ToDoList: {
@@ -96,6 +97,7 @@ function paintToDo(path, text) {
     const delBtn = document.createElement("button")
 
     delBtn.classList.add('btn');
+    delBtn.innerText = "✔️"
     delBtn.type="button" // default가 submit이기 때문에 엔터에 반응하므로 button으로 명시
     delBtn.addEventListener("click", askForDel);
 
@@ -151,10 +153,17 @@ function loadData() {
     }
 }
 
+function settingModify() {
+    
+    window.open("setting.html","_blank","width=500, height=500")
+    
+}
+
 function init() {
     loadData()
     managementClass.addEventListener("click", addClass)
     classForm.addEventListener("submit",handleSubmit)
+    setting.addEventListener("click", settingModify)
 }
 
 init();
