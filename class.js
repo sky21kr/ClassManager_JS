@@ -1,8 +1,7 @@
 const managementClass = document.querySelector(".jsManagementClass"),
     classDiv = document.querySelector(".jsClassDiv"),
     classForm = document.querySelector(".jsClassForm"),
-    toDoInput = document.querySelector(".jsToDoInput"),
-    setting = document.querySelector(".jsSetting")
+    toDoInput = document.querySelector(".jsToDoInput")
 
 var classObject = {
     ToDoList: {
@@ -11,11 +10,38 @@ var classObject = {
     }
 }
 
+function askForDelClass(btn) {
+    const result = confirm("해당 수업을 정말로 삭제하시겠습니까 ?")
+    if(result) {
+        deleteClass(btn);
+    }
+}
+
+function deleteClass() {
+    classNameForm = event.path[1]
+    className = classNameForm.id
+
+    event.path[2].removeChild(classNameForm)
+    delete classObject[className]
+    saveToDos()
+}
+
+function handleDeleteClass(event) {
+    askForDelClass(event)
+}
+
+function handleClassSetting() {
+    window.open("setting.html",event.path[1].id,"width=500, height=500")
+    // 저장하고 그리는거 부터 하기
+}
+
 function paintClass(name) {
     const form = document.createElement("form")
     const div = document.createElement("div")
     const input = document.createElement("input")
     const ul = document.createElement("ul")
+    const delBtn = document.createElement("button")
+    const settingBtn = document.createElement("button")
 
     form.classList.add("jsClassForm")
     form.id = name
@@ -23,13 +49,26 @@ function paintClass(name) {
     input.classList.add("jsToDoInput")
     ul.classList.add("jsToDoList")
 
+    delBtn.classList.add("delBtn")
+    delBtn.classList.add("classBtn")
+    delBtn.type = "button"
+    delBtn.innerText = "❌"
+    delBtn.addEventListener("click", handleDeleteClass)
+
+    settingBtn.classList.add("settingBtn")
+    settingBtn.classList.add("classBtn")
+    settingBtn.type = "button"
+    settingBtn.innerText = "⚙️"
+    settingBtn.addEventListener("click", handleClassSetting)
+
     div.innerText = name
     form.addEventListener("submit", handleSubmit)
 
     form.appendChild(div)
     form.appendChild(input)
     form.appendChild(ul)
-
+    form.appendChild(delBtn)
+    form.appendChild(settingBtn)
     classDiv.appendChild(form)
     saveToDos()
 }
@@ -94,16 +133,16 @@ function paintToDo(path, text) {
     const liPath = path.querySelector("ul")
     const li = document.createElement("li")
     const span = document.createElement("span")
-    const delBtn = document.createElement("button")
+    const checkBtn = document.createElement("button")
 
-    delBtn.classList.add('btn');
-    delBtn.innerText = "✔️"
-    delBtn.type="button" // default가 submit이기 때문에 엔터에 반응하므로 button으로 명시
-    delBtn.addEventListener("click", askForDel);
+    checkBtn.classList.add('checkBtn');
+    checkBtn.innerText = "✔️"
+    checkBtn.type="button" // default가 submit이기 때문에 엔터에 반응하므로 button으로 명시
+    checkBtn.addEventListener("click", askForDel);
 
     span.innerText = text;
     
-    li.appendChild(delBtn)
+    li.appendChild(checkBtn)
     li.appendChild(span)
     
     liPath.appendChild(li);
@@ -153,17 +192,11 @@ function loadData() {
     }
 }
 
-function settingModify() {
-    
-    window.open("setting.html","_blank","width=500, height=500")
-    
-}
 
 function init() {
     loadData()
     managementClass.addEventListener("click", addClass)
     classForm.addEventListener("submit",handleSubmit)
-    setting.addEventListener("click", settingModify)
 }
 
 init();
