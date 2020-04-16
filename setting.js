@@ -27,6 +27,9 @@ function updateInfo() {
             dayOfTheWeek: dayOfTheWeek
         }
     }
+    opener.saveToDos()
+    opener.location.reload()
+    window.close()
 }
 
 function handleSubmit(){

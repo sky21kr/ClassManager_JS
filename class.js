@@ -1,4 +1,4 @@
-const managementClass = document.querySelector(".jsManagementClass"),
+const addBtn = document.querySelector(".addBtn"),
     classDiv = document.querySelector(".jsClassDiv"),
     classForm = document.querySelector(".jsClassForm"),
     toDoInput = document.querySelector(".jsToDoInput")
@@ -195,7 +195,7 @@ function loadData() {
 
 function init() {
     loadData()
-    managementClass.addEventListener("click", addClass)
+    addBtn.addEventListener("click", addClass)
     classForm.addEventListener("submit",handleSubmit)
 }
 
