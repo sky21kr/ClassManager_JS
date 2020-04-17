@@ -67,3 +67,8 @@ body{
     bottom: 10px;
     right: 28px;
 }
+
+.jsDate{
+    color: white;
+    font-family: '나눔고딕', 'Malgun Gothic';
+}

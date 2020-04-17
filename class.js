@@ -32,7 +32,6 @@ function handleDeleteClass(event) {
 
 function handleClassSetting() {
     window.open("setting.html",event.path[1].id,"width=500, height=500")
-    // 저장하고 그리는거 부터 하기
 }
 
 function paintClass(name) {
@@ -98,7 +97,6 @@ function addClass() {
             ...newClassObject
         }
 
-        console.log(classObject)
         paintClass(name,dayOfTheWeek)
 
     }
@@ -128,6 +126,37 @@ function askForDel(btn) {
     }
 }
 
+function checkListOverlap(id, list) {
+
+    if( classObject[id]["toDos"].indexOf(list) === -1 ) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function changeList(id,beforeContent, afterContent) {
+    event.target.innerHTML = afterContent;
+    classObject[id]["toDos"].splice(classObject[id]["toDos"].indexOf(beforeContent),1,afterContent);
+
+    saveToDos();
+}
+
+function handleChangeList(){
+    const id = event.target.parentNode.parentNode.parentNode.id;
+    const beforeContent = event.target.innerHTML;
+    const afterContent = prompt("바꿀 내용을 입력하세요",event.target.innerHTML);
+    
+    if( afterContent === null ) {
+
+    } else if (!checkListOverlap(id,afterContent)) {
+        changeList(id,beforeContent, afterContent);
+    } else {
+        alert('이미 존재하는 리스트입니다.')
+    }
+    
+}
+
 function paintToDo(path, text) {
 
     const liPath = path.querySelector("ul")
@@ -141,7 +170,8 @@ function paintToDo(path, text) {
     checkBtn.addEventListener("click", askForDel);
 
     span.innerText = text;
-    
+    span.addEventListener("dblclick", handleChangeList);
+
     li.appendChild(checkBtn)
     li.appendChild(span)
     
@@ -157,6 +187,13 @@ function handleSubmit() {
     const liPath = event.path[0][0]
     const name = formPath.querySelector("div").innerText
     const currentValue = liPath.value
+    
+    liPath.value = "";
+    
+    if(checkListOverlap(name, currentValue) == true ) {
+        alert('이미 존재하는 리스트입니다.');
+        return;
+    }
 
     classObject[name]["toDos"].push(currentValue)
     
@@ -164,7 +201,6 @@ function handleSubmit() {
         ...classObject[name],
         path: formPath
     }
-    console.log(classObject[name]["path"])
 
     paintToDo(formPath, currentValue)
 
