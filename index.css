@@ -1,74 +1,84 @@
-body{
-    text-align: center;
-    background-color: #A0DEBF;
+body {
+  text-align: center;
+  background-color: #7ebdb4;
 }
 
-.jsClassDiv{
-    display: table;
+.flexbox {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.jsClassForm{
-    background-color: white;
-    height: 400px;
-    width: 250px;
-    border-radius: 20px 20px;
-    box-shadow: 3px 3px 10px;
-    margin: 50px;
-    float: left;
-    position: relative;
-    
+.jsClassDiv {
+  display: table;
 }
 
-.jsClassName{
-    font-size: 30px;
+.jsClassForm {
+  background-color: white;
+  height: 400px;
+  width: 250px;
+  border-radius: 20px 20px;
+  box-shadow: 3px 3px 10px;
+  margin: 50px;
+  float: left;
+  position: relative;
 }
 
-
-.jsToDoList{
-    font-size: 15px;
-    text-align: left;
-    list-style: none;
-    overflow: auto;
-    resize: none;
-    height: 280px;
-    width: 160px;
-    padding: 0px;
+.jsClassName {
+  font-size: 30px;
 }
 
-.checkBtn{
-
-    background: white;
-    cursor: pointer;
-    padding: 0px;   
-    border: 0;
+.jsToDoList {
+  font-size: 15px;
+  text-align: left;
+  list-style: none;
+  overflow: auto;
+  resize: none;
+  height: 280px;
+  width: 160px;
+  padding: 0px;
 }
 
-.classBtn{
-    position: absolute;
-    padding: 0px;   
-    border: 0;
-    outline: 0;
-    background-image: none;
-    background-color: transparent;
-    cursor: pointer;
+.checkBtn {
+  cursor: pointer;
+  background-image: none;
+  background-color: transparent;
+  padding: 0px;
+  border: 0;
 }
 
-.addBtn{
-    bottom: 10px;
-    right: 8px;
+.classBtn {
+  position: absolute;
+  padding: 0px;
+  border: 0;
+  outline: 0;
+  background-image: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
-.delBtn{ 
-    bottom: 10px;
-    right: 8px;
+.addBtn {
+  bottom: 10px;
+  right: 8px;
 }
 
-.settingBtn{
-    bottom: 10px;
-    right: 28px;
+.delBtn {
+  bottom: 10px;
+  right: 8px;
 }
 
-.jsDate{
-    color: white;
-    font-family: '나눔고딕', 'Malgun Gothic';
+.settingBtn {
+  bottom: 10px;
+  right: 28px;
+}
+
+.jsTimeForm {
+  padding-top: 30px;
+  color: white;
+  font-family: "나눔고딕", "Malgun Gothic";
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.jsTodayClass {
+  background-color: #ffe0ac;
 }
