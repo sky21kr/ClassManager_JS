@@ -232,6 +232,13 @@ function loadData() {
   }
 }
 
+function autoAddLecture() {
+  /*
+  수업자동추가 일을 저장하는 변수 선언
+  만약 일이 달라질 시 추가.
+  */
+}
+
 function init() {
   loadData();
   addBtn.addEventListener("click", addClass);

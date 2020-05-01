@@ -72,11 +72,10 @@ body {
 }
 
 .jsTimeForm {
+  font-family: "Jua", sans-serif;
   padding-top: 30px;
   color: white;
-  font-family: "나눔고딕", "Malgun Gothic";
   font-size: 50px;
-  font-weight: bold;
 }
 
 .jsTodayClass {
