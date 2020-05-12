@@ -9,22 +9,36 @@ body {
 }
 
 .jsClassDiv {
-  display: table;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .jsClassForm {
   background-color: white;
   height: 400px;
-  width: 250px;
+  width: 260px;
   border-radius: 20px 20px;
   box-shadow: 3px 3px 10px;
   margin: 50px;
   float: left;
   position: relative;
+  animation: fadein 1s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .jsClassName {
   font-size: 30px;
+  margin-top: 7px;
+  font-family: "Jua", sans-serif;
 }
 
 .jsToDoList {
@@ -33,12 +47,19 @@ body {
   list-style: none;
   overflow: auto;
   resize: none;
-  height: 280px;
-  width: 160px;
-  padding: 0px;
+  height: 70%;
+  width: 85%;
+  padding: 0px 0px;
+  margin: 20px auto;
+}
+
+.jsToDoList li {
+  margin: 5px;
+  font-family: "Jua", sans-serif;
 }
 
 .checkBtn {
+  margin-right: 5px;
   cursor: pointer;
   background-image: none;
   background-color: transparent;

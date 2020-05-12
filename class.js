@@ -10,6 +10,8 @@ var classObject = {
   },
 };
 
+let timeCheck;
+
 function askForDelClass(btn) {
   const result = confirm("해당 수업을 정말로 삭제하시겠습니까 ?");
   if (result) {
@@ -232,7 +234,27 @@ function loadData() {
   }
 }
 
+function addLecture() {
+  for (var className in classObject) {
+    console.log(classObject[className]);
+    //console.log(classObject[className].dayOfTheWeek[new Date().getDay() - 1]);
+    console.log(new Date().getDay() - 1);
+  }
+
+  if (classObject[name].dayOfTheWeek[new Date().getDay() - 1] === true) {
+    console.log();
+  }
+}
+
 function autoAddLecture() {
+  const today = new Date().getDate();
+
+  console.log(day);
+  if (timeCheck == null) {
+    timeCheck = today;
+  } else if (timeCheck !== today) {
+    addLecture();
+  }
   /*
   수업자동추가 일을 저장하는 변수 선언
   만약 일이 달라질 시 추가.
