@@ -102,3 +102,11 @@ body {
 .jsTodayClass {
   background-color: #ffe0ac;
 }
+
+.jsToDoInput {
+  border: none;
+  font-size: 20px;
+  text-align: center;
+  font-family: "Jua", sans-serif;
+  background: transparent;
+}

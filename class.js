@@ -32,10 +32,6 @@ function handleDeleteClass(event) {
   askForDelClass(event);
 }
 
-function handleClassSetting() {
-  window.open("setting.html", event.path[1].id, "width=500, height=500");
-}
-
 function paintClass(name) {
   const form = document.createElement("form");
   const div = document.createElement("div");
@@ -69,6 +65,8 @@ function paintClass(name) {
   div.innerText = name;
   form.addEventListener("submit", handleSubmit);
 
+  input.placeholder = "Please Input";
+
   form.appendChild(div);
   form.appendChild(input);
   form.appendChild(ul);
@@ -78,8 +76,13 @@ function paintClass(name) {
   saveToDos();
 }
 
+function handleClassSetting() {
+  window.open("setting.html", event.path[1].id, "width=320, height=320");
+  window.onmessage = function (info) {};
+}
+
 function addClass() {
-  window.open("add.html", "_blank", "width=500, height=500");
+  window.open("add.html", "_blank", "width=320, height=320");
   window.onmessage = function (info) {
     const name = info.data.name;
     const dayOfTheWeek = info.data.dayOfTheWeek;
