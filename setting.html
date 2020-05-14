@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Setting</title>
+    <title>Setting Class</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="setting.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <div class="modal hidden">
+      <div class="modalContents">
+        이미 존재하는 수업입니다
+        <div></div>
+        <button class="modalExit">확인</button>
+      </div>
+    </div>
     <form class="jsAddForm">
-      <div>
-        Class Name
-        <input type="text" class="jsClassName" />
+      <div>Class Name</div>
+      <div class="inputBorder">
+        <input type="text" placeholder="Input Class Name" class="jsClassName" />
       </div>
       <div>Day of the week</div>
-      <div>
+      <div class="checkBoxForm">
         <label
           ><input type="checkbox" name="dayOfTheWeek" value="1" />Mon</label
         >
         <label
-          ><input type="checkbox" name="dayOfTheWeek" value="2" />Tuey</label
+          ><input type="checkbox" name="dayOfTheWeek" value="2" />Tue</label
         >
         <label
           ><input type="checkbox" name="dayOfTheWeek" value="3" />Wed</label
@@ -29,7 +40,10 @@
           ><input type="checkbox" name="dayOfTheWeek" value="5" />Fri</label
         >
       </div>
-      <button class="jsSubmit">확인</button>
+      <div class="jsBtn">
+        <button class="jsSubmit" type="button">추가</button>
+        <button class="jsCancel" type="button">취소</button>
+      </div>
     </form>
     <script src="setting.js"></script>
   </body>

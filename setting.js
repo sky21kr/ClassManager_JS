@@ -1,6 +1,9 @@
 const className = document.querySelector(".jsClassName"),
   classDay = document.getElementsByName("dayOfTheWeek"),
-  submit = document.querySelector(".jsSubmit");
+  submit = document.querySelector(".jsSubmit"),
+  modal = document.querySelector(".modal"),
+  modalExit = document.querySelector(".modalExit"),
+  cancelBtn = document.querySelector(".jsCancel");
 
 function defaultSetting() {
   className.value = window.name;
@@ -10,6 +13,7 @@ function defaultSetting() {
 }
 
 function updateInfo() {
+  console.log(window.name);
   const toDos = opener.classObject[window.name]["toDos"];
   const dayOfTheWeek = [];
   classDay.forEach((element) => {
@@ -32,9 +36,8 @@ function updateInfo() {
 }
 
 function checkOverlap() {
-  for (name in opener.classObject) {
-    if (name == className.value) {
-      alert("이미 존재하는 수업입니다");
+  for (i in opener.classObject) {
+    if (i == className.value) {
       return true;
     }
   }
@@ -43,15 +46,25 @@ function checkOverlap() {
 
 function handleSubmit() {
   if (checkOverlap() === true) {
-    return;
+    modal.classList.remove("hidden");
   } else {
     updateInfo();
   }
 }
 
+function handleModalExit() {
+  modal.classList.add("hidden");
+}
+
+function handleCancel() {
+  window.close();
+}
+
 function init() {
   defaultSetting();
   submit.addEventListener("click", handleSubmit);
+  modalExit.addEventListener("click", handleModalExit);
+  cancelBtn.addEventListener("click", handleCancel);
 }
 
 init();

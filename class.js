@@ -78,7 +78,6 @@ function paintClass(name) {
 
 function handleClassSetting() {
   window.open("setting.html", event.path[1].id, "width=320, height=320");
-  window.onmessage = function (info) {};
 }
 
 function addClass() {
