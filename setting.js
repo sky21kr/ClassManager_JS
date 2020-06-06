@@ -36,6 +36,10 @@ function updateInfo() {
 }
 
 function checkOverlap() {
+  // 수정시 이름이 현재 것과 같을 경우
+  if (window.name === className.value) {
+    return false;
+  }
   for (i in opener.classObject) {
     if (i == className.value) {
       return true;
