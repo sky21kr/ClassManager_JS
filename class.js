@@ -47,6 +47,7 @@ function paintClass(name) {
   form.classList.add("jsClassForm");
   form.id = name;
   div.classList.add("jsClassName");
+  div.id = "";
   input.classList.add("jsToDoInput");
   ul.classList.add("jsToDoList");
 
@@ -193,7 +194,7 @@ function handleSubmit() {
   event.preventDefault();
   const formPath = event.path[0];
   const liPath = event.path[0][0];
-  const name = formPath.querySelector("div").innerText;
+  const name = formPath.id;
   const currentValue = liPath.value;
 
   liPath.value = "";
